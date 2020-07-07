@@ -1,0 +1,371 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dbo="http://dbpedia.org/ontology/"
+    xmlns:schema="http://schema.org/"
+    xmlns:dbr="http://dbpedia.org/resource/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:data="http://utpl.edu.ec/sbc/dataCOVID/"
+    xmlns:gn="http://www.geonames.org/ontology#"
+    xmlns:newOnto="http://utpl.edu.ec/sbc/data/Ontology">
+  <dbo:country rdf:about="http://dbpedia.org/resource/Germany">
+    <schema:populationTotal>83783945</schema:populationTotal>
+    <schema:longitude>9.0000000</schema:longitude>
+    <schema:latitude>51.0000000</schema:latitude>
+    <gn:countryCode>DEU</gn:countryCode>
+    <dbo:Continent>
+      <dbo:Continent rdf:about="http://dbpedia.org/ontology/Europe">
+        <rdfs:label>Europe</rdfs:label>
+      </dbo:Continent>
+    </dbo:Continent>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Sweden">
+    <schema:populationTotal>10099270</schema:populationTotal>
+    <schema:longitude>15.0000000</schema:longitude>
+    <schema:latitude>62.0000000</schema:latitude>
+    <gn:countryCode>SWE</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Montenegro">
+    <schema:populationTotal>628062</schema:populationTotal>
+    <schema:longitude>19.3743896</schema:longitude>
+    <schema:latitude>42.7086792</schema:latitude>
+    <gn:countryCode>MNE</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Liechtenstein">
+    <schema:populationTotal>38137</schema:populationTotal>
+    <schema:longitude>9.5333000</schema:longitude>
+    <schema:latitude>47.1667000</schema:latitude>
+    <gn:countryCode>LIE</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Belarus">
+    <schema:populationTotal>9449321</schema:populationTotal>
+    <schema:longitude>28.0000000</schema:longitude>
+    <schema:latitude>53.0000000</schema:latitude>
+    <gn:countryCode>BLR</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Guernsey">
+    <schema:populationTotal>67052</schema:populationTotal>
+    <schema:longitude>-2.585278</schema:longitude>
+    <schema:latitude>49.4656906</schema:latitude>
+    <gn:countryCode>GGY</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Cyprus">
+    <schema:populationTotal>875899</schema:populationTotal>
+    <schema:longitude>33.0000000</schema:longitude>
+    <schema:latitude>35.0000000</schema:latitude>
+    <gn:countryCode>CYP</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Czech Republic">
+    <schema:populationTotal>10708982</schema:populationTotal>
+    <schema:longitude>15.5000000</schema:longitude>
+    <schema:latitude>49.7500000</schema:latitude>
+    <gn:countryCode>CZE</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Jersey">
+    <schema:populationTotal>101073</schema:populationTotal>
+    <schema:longitude>-2.1312499</schema:longitude>
+    <schema:latitude>49.2144394</schema:latitude>
+    <gn:countryCode>JEY</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Bosnia and Herzegovina">
+    <schema:populationTotal>3280815</schema:populationTotal>
+    <schema:longitude>17.6790752</schema:longitude>
+    <schema:latitude>43.9158859</schema:latitude>
+    <gn:countryCode>BIH</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Slovakia">
+    <schema:populationTotal>5459643</schema:populationTotal>
+    <schema:longitude>19.5000000</schema:longitude>
+    <schema:latitude>48.6667000</schema:latitude>
+    <gn:countryCode>SVK</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Albania">
+    <schema:populationTotal>2877800</schema:populationTotal>
+    <schema:longitude>19.8166667</schema:longitude>
+    <schema:latitude>41.3333333</schema:latitude>
+    <gn:countryCode>ALB</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Austria">
+    <schema:populationTotal>9006400</schema:populationTotal>
+    <schema:longitude>13.3333000</schema:longitude>
+    <schema:latitude>47.3333000</schema:latitude>
+    <gn:countryCode>AUT</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Luxembourg">
+    <schema:populationTotal>625976</schema:populationTotal>
+    <schema:longitude>6.1667000</schema:longitude>
+    <schema:latitude>49.7500000</schema:latitude>
+    <gn:countryCode>LUX</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/France">
+    <schema:populationTotal>65273512</schema:populationTotal>
+    <schema:longitude>2.0000000</schema:longitude>
+    <schema:latitude>46.0000000</schema:latitude>
+    <gn:countryCode>FRA</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Iceland">
+    <schema:populationTotal>341250</schema:populationTotal>
+    <schema:longitude>-18.0000000</schema:longitude>
+    <schema:latitude>65.0000000</schema:latitude>
+    <gn:countryCode>ISL</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Greece">
+    <schema:populationTotal>10423056</schema:populationTotal>
+    <schema:longitude>22.0000000</schema:longitude>
+    <schema:latitude>39.0000000</schema:latitude>
+    <gn:countryCode>GRC</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Norway">
+    <schema:populationTotal>5421242</schema:populationTotal>
+    <schema:longitude>10.0000000</schema:longitude>
+    <schema:latitude> 62.0000000</schema:latitude>
+    <gn:countryCode>NOR</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Macedonia">
+    <schema:populationTotal>2083380</schema:populationTotal>
+    <schema:longitude>21.7452755</schema:longitude>
+    <schema:latitude>41.6086349</schema:latitude>
+    <gn:countryCode>MKD</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Slovenia">
+    <schema:populationTotal>2078932</schema:populationTotal>
+    <schema:longitude>15.0000000</schema:longitude>
+    <schema:latitude>46.0000000</schema:latitude>
+    <gn:countryCode>SVN</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Bulgaria">
+    <schema:populationTotal>6948445</schema:populationTotal>
+    <schema:longitude>25.0000000</schema:longitude>
+    <schema:latitude>43.0000000</schema:latitude>
+    <gn:countryCode>BGR</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Moldova">
+    <schema:populationTotal>4033963</schema:populationTotal>
+    <schema:longitude>29.0000000</schema:longitude>
+    <schema:latitude>47.0000000</schema:latitude>
+    <gn:countryCode>MDA</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Poland">
+    <schema:populationTotal>37846605</schema:populationTotal>
+    <schema:longitude>20.0000000</schema:longitude>
+    <schema:latitude>52.0000000</schema:latitude>
+    <gn:countryCode>POL</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Andorra">
+    <schema:populationTotal>77265</schema:populationTotal>
+    <schema:longitude>1.6000000</schema:longitude>
+    <schema:latitude>42.5000000</schema:latitude>
+    <gn:countryCode>AND</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Finland">
+    <schema:populationTotal>5540718</schema:populationTotal>
+    <schema:longitude>26.0000000</schema:longitude>
+    <schema:latitude>64.0000000</schema:latitude>
+    <gn:countryCode>FIN</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Latvia">
+    <schema:populationTotal>1886202</schema:populationTotal>
+    <schema:longitude>25.0000000</schema:longitude>
+    <schema:latitude>57.0000000</schema:latitude>
+    <gn:countryCode>LVA</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Denmark">
+    <schema:populationTotal>5792203</schema:populationTotal>
+    <schema:longitude>10.0000000</schema:longitude>
+    <schema:latitude>56.0000000</schema:latitude>
+    <gn:countryCode>DNK</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Portugal">
+    <schema:populationTotal>10196707</schema:populationTotal>
+    <schema:longitude>-8.0000000</schema:longitude>
+    <schema:latitude>39.5000000</schema:latitude>
+    <gn:countryCode>PRT</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Gibraltar">
+    <schema:populationTotal>33691</schema:populationTotal>
+    <schema:longitude>-5.3667000</schema:longitude>
+    <schema:latitude>36.1833000</schema:latitude>
+    <gn:countryCode>GIB</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Hungary">
+    <schema:populationTotal>9660350</schema:populationTotal>
+    <schema:longitude>20.0000000</schema:longitude>
+    <schema:latitude>47.0000000</schema:latitude>
+    <gn:countryCode>HUN</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Italy">
+    <schema:populationTotal>60461828</schema:populationTotal>
+    <schema:longitude>90.832005</schema:longitude>
+    <schema:latitude>45.8081894</schema:latitude>
+    <gn:countryCode>ITA</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Ukraine">
+    <schema:populationTotal>43733759</schema:populationTotal>
+    <schema:longitude>31.1655807</schema:longitude>
+    <schema:latitude>48.3794327</schema:latitude>
+    <gn:countryCode>UKR</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/United Kingdom">
+    <schema:populationTotal>67886004</schema:populationTotal>
+    <schema:longitude>-3.4359729</schema:longitude>
+    <schema:latitude>55.3780518</schema:latitude>
+    <gn:countryCode>GBR</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Kosovo">
+    <schema:populationTotal>1932774</schema:populationTotal>
+    <schema:longitude>20.902977</schema:longitude>
+    <schema:latitude>42.6026344</schema:latitude>
+    <gn:countryCode>OWID_KOS</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Belgium">
+    <schema:populationTotal>11589616</schema:populationTotal>
+    <schema:longitude>4.0000000</schema:longitude>
+    <schema:latitude>50.8333000</schema:latitude>
+    <gn:countryCode>BEL</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Romania">
+    <schema:populationTotal>19237682</schema:populationTotal>
+    <schema:longitude>25.0000000</schema:longitude>
+    <schema:latitude>46.0000000</schema:latitude>
+    <gn:countryCode>ROU</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Monaco">
+    <schema:populationTotal>39244</schema:populationTotal>
+    <schema:longitude>7.4000000</schema:longitude>
+    <schema:latitude>43.7333000</schema:latitude>
+    <gn:countryCode>MCO</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/San Marino">
+    <schema:populationTotal>33938</schema:populationTotal>
+    <schema:longitude>12.4167000</schema:longitude>
+    <schema:latitude>43.7667000</schema:latitude>
+    <gn:countryCode>SMR</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Spain">
+    <schema:populationTotal>46754783</schema:populationTotal>
+    <schema:longitude>-4.0000000</schema:longitude>
+    <schema:latitude>40.0000000</schema:latitude>
+    <gn:countryCode>ESP</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Malta">
+    <schema:populationTotal>441539</schema:populationTotal>
+    <schema:longitude>14.5833000</schema:longitude>
+    <schema:latitude> 35.8333000</schema:latitude>
+    <gn:countryCode>MLT</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Switzerland">
+    <schema:populationTotal>8654618</schema:populationTotal>
+    <schema:longitude>8.0000000</schema:longitude>
+    <schema:latitude>47.0000000</schema:latitude>
+    <gn:countryCode>CHE</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Croatia">
+    <schema:populationTotal>4105268</schema:populationTotal>
+    <schema:longitude>15.1999998</schema:longitude>
+    <schema:latitude>45.0999985</schema:latitude>
+    <gn:countryCode>HRV</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Estonia">
+    <schema:populationTotal>1326539</schema:populationTotal>
+    <schema:longitude>26.0000000</schema:longitude>
+    <schema:latitude>59.0000000</schema:latitude>
+    <gn:countryCode>EST</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Serbia">
+    <schema:populationTotal>6804596</schema:populationTotal>
+    <schema:longitude>21.0000000</schema:longitude>
+    <schema:latitude>44.0000000</schema:latitude>
+    <gn:countryCode>SRB</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Netherlands">
+    <schema:populationTotal>17134873</schema:populationTotal>
+    <schema:longitude>-15.5756000</schema:longitude>
+    <schema:latitude> 27.7498000</schema:latitude>
+    <gn:countryCode>NLD</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Russia">
+    <schema:populationTotal>145934460</schema:populationTotal>
+    <schema:longitude>100.0000000</schema:longitude>
+    <schema:latitude>60.0000000</schema:latitude>
+    <gn:countryCode>RUS</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Isle of Man">
+    <schema:populationTotal>85032</schema:populationTotal>
+    <schema:longitude>-4.5480561</schema:longitude>
+    <schema:latitude>54.2361069</schema:latitude>
+    <gn:countryCode>IMN</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Vatican">
+    <schema:populationTotal>809</schema:populationTotal>
+    <schema:longitude>12.4500000</schema:longitude>
+    <schema:latitude>41.9000000</schema:latitude>
+    <gn:countryCode>VAT</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Ireland">
+    <schema:populationTotal>4937796</schema:populationTotal>
+    <schema:longitude>-18.0000000</schema:longitude>
+    <schema:latitude>65.0000000</schema:latitude>
+    <gn:countryCode>IRL</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Lithuania">
+    <schema:populationTotal>2722291</schema:populationTotal>
+    <schema:longitude>24.0000000</schema:longitude>
+    <schema:latitude>56.0000000</schema:latitude>
+    <gn:countryCode>LTU</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+  <dbo:country rdf:about="http://dbpedia.org/resource/Faeroe Islands">
+    <schema:populationTotal>48865</schema:populationTotal>
+    <schema:longitude>-7.0000000</schema:longitude>
+    <schema:latitude>62.0000000</schema:latitude>
+    <gn:countryCode>FRO</gn:countryCode>
+    <dbo:Continent rdf:resource="http://dbpedia.org/ontology/Europe"/>
+  </dbo:country>
+</rdf:RDF>
