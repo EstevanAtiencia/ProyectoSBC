@@ -9,7 +9,7 @@ package Clases;
  *
  * @author Estevan
  */
-public class casosstring {
+public class ClasePrincpial {
 
     private String continent;
     private String iso_code;
@@ -38,7 +38,7 @@ public class casosstring {
 
     
    
-    public casosstring(String continent, String iso_code, String country, String longitude, String latitude, String date, String total_case, String new_cases, String total_deaths, String new_deaths, String total_tests, String new_tests, String positives, String negatives, String realized, String not_confirmed, String active_caso, String recovered, String confirmed, String hospitalized, String population) {
+    public ClasePrincpial(String continent, String iso_code, String country, String longitude, String latitude, String date, String total_case, String new_cases, String total_deaths, String new_deaths, String total_tests, String new_tests, String positives, String negatives, String realized, String not_confirmed, String active_caso, String recovered, String confirmed, String hospitalized, String population) {
         this.continent = continent;
         this.iso_code = iso_code;
         this.country = country;

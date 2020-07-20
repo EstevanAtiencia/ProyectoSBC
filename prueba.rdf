@@ -1,0 +1,94 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dbo="http://dbpedia.org/ontology/"
+    xmlns:schema="http://schema.org/"
+    xmlns:data="http://utpl.edu.ec/sbc/data/"
+    xmlns:dbr="http://dbpedia.org/resource/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:gn="http://www.geonames.org/ontology#"
+    xmlns:j.0="http://xmlns.com/foaf/0.1/">
+  <j.0:Person rdf:about="http://utpl.edu.ec/sbc/data/0998123456">
+    <dbo:occupation>
+      <dbo:PersonFunction rdf:about="http://utpl.edu.ec/sbc/data/EstudianteDistancia">
+        <rdfs:label>EstudianteDistancia</rdfs:label>
+      </dbo:PersonFunction>
+    </dbo:occupation>
+    <dbo:mother rdf:resource="http://utpl.edu.ec/sbc/data/948759800"/>
+    <dbo:father>
+      <j.0:Person rdf:about="http://utpl.edu.ec/sbc/data/1101457364">
+        <dbo:occupation>
+          <dbo:PersonFunction rdf:about="http://utpl.edu.ec/sbc/data/Profesor">
+            <rdfs:label>Profesor</rdfs:label>
+          </dbo:PersonFunction>
+        </dbo:occupation>
+        <dbo:mother rdf:resource="http://utpl.edu.ec/sbc/data/1100734135"/>
+        <dbo:father rdf:resource="http://utpl.edu.ec/sbc/data/1100233545"/>
+        <dbo:country>
+          <dbo:Country rdf:about="http://dbpedia.org/resource/Ecuador">
+            <gn:countryCode>EC</gn:countryCode>
+          </dbo:Country>
+        </dbo:country>
+        <j.0:firstName>Mauricio</j.0:firstName>
+      </j.0:Person>
+    </dbo:father>
+    <dbo:country rdf:resource="http://dbpedia.org/resource/Ecuador"/>
+    <schema:email>arsalas@utpl.edu.ec</schema:email>
+    <j.0:lastName>Salas Castro</j.0:lastName>
+    <j.0:firstName>Ana Rosa</j.0:firstName>
+  </j.0:Person>
+  <j.0:Person rdf:about="http://utpl.edu.ec/sbc/data/1093491395">
+    <dbo:occupation>
+      <dbo:PersonFunction rdf:about="http://utpl.edu.ec/sbc/data/EstudiantePresencial">
+        <rdfs:label>EstudiantePresencial</rdfs:label>
+      </dbo:PersonFunction>
+    </dbo:occupation>
+    <dbo:mother>
+      <j.0:Person rdf:about="http://utpl.edu.ec/sbc/data/99234234N">
+        <dbo:occupation>
+          <dbo:PersonFunction rdf:about="http://utpl.edu.ec/sbc/data/Amadecasa">
+            <rdfs:label>Amadecasa</rdfs:label>
+          </dbo:PersonFunction>
+        </dbo:occupation>
+        <dbo:mother>
+          <j.0:Person rdf:about="http://utpl.edu.ec/sbc/data/8128149G">
+            <dbo:occupation>
+              <dbo:PersonFunction rdf:about="http://utpl.edu.ec/sbc/data/Doctora">
+                <rdfs:label>Doctora</rdfs:label>
+              </dbo:PersonFunction>
+            </dbo:occupation>
+            <dbo:country>
+              <dbo:Country rdf:about="http://dbpedia.org/resource/Venezuela">
+                <gn:countryCode>VN</gn:countryCode>
+              </dbo:Country>
+            </dbo:country>
+            <schema:email>mgvasquezl@gmail.com</schema:email>
+            <j.0:lastName>Vásquez</j.0:lastName>
+            <j.0:firstName>María</j.0:firstName>
+          </j.0:Person>
+        </dbo:mother>
+        <dbo:father rdf:resource="http://utpl.edu.ec/sbc/data/91989823F"/>
+        <dbo:country>
+          <dbo:Country rdf:about="http://dbpedia.org/resource/Colombia">
+            <gn:countryCode>CO</gn:countryCode>
+          </dbo:Country>
+        </dbo:country>
+        <j.0:firstName>Esterfilia</j.0:firstName>
+      </j.0:Person>
+    </dbo:mother>
+    <dbo:country rdf:resource="http://dbpedia.org/resource/Ecuador"/>
+    <schema:email>lagutierrez@utpl.edu.ec</schema:email>
+    <j.0:lastName>Gutiérrez</j.0:lastName>
+    <j.0:firstName>Luís</j.0:firstName>
+  </j.0:Person>
+  <j.0:Person rdf:about="http://utpl.edu.ec/sbc/data/0948759800">
+    <dbo:occupation>
+      <dbo:PersonFunction rdf:about="http://utpl.edu.ec/sbc/data/Contadora">
+        <rdfs:label>Contadora</rdfs:label>
+      </dbo:PersonFunction>
+    </dbo:occupation>
+    <dbo:mother rdf:resource="http://utpl.edu.ec/sbc/data/1792439595"/>
+    <dbo:father rdf:resource="http://utpl.edu.ec/sbc/data/0922458782"/>
+    <dbo:country rdf:resource="http://dbpedia.org/resource/Ecuador"/>
+    <j.0:firstName>Rosa</j.0:firstName>
+  </j.0:Person>
+</rdf:RDF>

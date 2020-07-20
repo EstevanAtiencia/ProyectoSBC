@@ -1,7 +1,11 @@
 package sbc;
 
 import Clases.casos;
-import Clases.casosstring;
+import Clases.ClasePrincpial;
+import Clases.Continente;
+import Clases.Dataset;
+import Clases.Pais;
+import Clases.Total_casos;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,13 +36,15 @@ import org.apache.jena.vocabulary.RDFS;
  */
 class GeneratorRDF {
 
-    static String DataFilePath = "/Users/Estevan/Documents/NetbeansProjects/Proyecto_SBC/Europa-Date6.csv"; //Data
+    static String DataFilePath = "/Users/Estevan/Documents/NetbeansProjects/Proyecto_SBC/Europa-Date8.csv"; //Data
     static String GenFilePath = "/Users/Estevan/Documents/NetbeansProjects/Proyecto_SBC/casos.rdf"; //Generated RDF
 
     public static void main(String... args) throws FileNotFoundException {
         //Get data from CSV and store in a list
 
-        ArrayList<casosstring> caso = new ArrayList();
+        ArrayList<ClasePrincpial> caso = new ArrayList();
+        
+        List<Total_casos> LTC = new ArrayList<>();
         /*Leer csv*/
         BufferedReader bufferLectura = null;
         try {
@@ -46,18 +52,28 @@ class GeneratorRDF {
             String titulo = bufferLectura.readLine();
             String linea = bufferLectura.readLine();
             String[] campos;
-
+            int i=1;
             while (linea != null) {
-                campos = linea.split(",");
+                
+                campos = linea.split(";");
                 //System.out.println(Arrays.toString(campos));
                 linea = bufferLectura.readLine();
 
-                casosstring cases = new casosstring(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5],
+                
+                /*ClasePrincpial cases = new ClasePrincpial(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5],
                         campos[6], campos[7],
                         campos[8], campos[9], campos[10], campos[11], campos[12], campos[13], campos[14], campos[15],
                         campos[16], campos[17], campos[18], campos[19], campos[20]);
-                caso.add(cases);
-
+                caso.add(cases);*/
+                
+                Continente cont= new Continente(campos[0]);
+               
+               // System.out.println(campos[21]);
+                Pais pais = new Pais(campos[1],campos[2],campos[3],campos[4],campos[20],campos[21],cont);
+                Dataset ds= new Dataset(campos[22],campos[23],campos[24],campos[25],campos[26],campos[27]);
+                Total_casos TC= new Total_casos("confir_"+i,campos[5], campos[6],campos[7], pais,ds);
+                LTC.add(TC);
+                i++;
             }
         } catch (IOException e) {
         } finally {
@@ -78,10 +94,10 @@ class GeneratorRDF {
         //Set prefix for the URI base (data)
         String dataPrefix = "http://utpl.edu.ec/sbc/dataCOVID/";
         model.setNsPrefix("data", dataPrefix);
-
-        String newOnto = "http://utpl.edu.ec/sbc/data/Ontology";
+        
+        String newOnto = "http://utpl.edu.ec/sbc/data/Ontology/";
         model.setNsPrefix("newOnto", newOnto);
-
+        Model newOntoM = ModelFactory.createDefaultModel();
         //Vocab and models present in JENA
         //SCHEMA
         String schema = "http://schema.org/";
@@ -99,62 +115,70 @@ class GeneratorRDF {
         String gn = "http://www.geonames.org/ontology#";
         model.setNsPrefix("gn", gn);
         Model gnModel = ModelFactory.createDefaultModel();
+        
+        String dcat = "http://www.w3.org/ns/dcat#";
+        model.setNsPrefix("dcat", dcat);
+        Model dcatModel = ModelFactory.createDefaultModel();
         //Remove the data header from the list
+        
+        
+        String dc = "http://purl.org/dc/elements/1.1/";
+        model.setNsPrefix("dc", dc);
+        Model dcModel = ModelFactory.createDefaultModel();
+        
+        
+        String prov = "http://www.w3.org/ns/prov#";
+        model.setNsPrefix("prov", prov);
+        Model provModel = ModelFactory.createDefaultModel();
+   
 
-        // let's print all the person read from CSV file
-        for (casosstring b : caso) {
-
-            Resource con = model.createResource(dbo + b.getContinent())
+       
+        for (Total_casos total_casos : LTC) {
+            
+           Resource con = model.createResource(dataPrefix + total_casos.getPais().getCon().getNombre())
                     .addProperty(RDF.type, dboModel.getProperty(dbo, "Continent"))
-                    .addProperty(RDFS.label, b.getContinent());
-            
-            Resource rC = model.createResource(dbr + b.getCountry())
-                    .addProperty(dboModel.getProperty(dbo, "Continent"), dboModel.getProperty(dbo, b.getContinent()))
-                    .addProperty(RDF.type, dboModel.getProperty(dbo, "country"))
+                    .addProperty(dboModel.getProperty(dbo,"name"),total_casos.getPais().getCon().getNombre() );
+           
+           String aux=total_casos.getPais().getNombre().replaceAll(" ", "_");
+           
+            Resource rC = model.createResource(dataPrefix + aux)
                    
-                    .addProperty(gnModel.getProperty(gn, "countryCode"), b.getIso_code())
-                    .addProperty(schemaModel.getProperty(schema, "latitude"), b.getLatitude())
-                    .addProperty(schemaModel.getProperty(schema, "longitude"), b.getLongitude())
-                    .addProperty(schemaModel.getProperty(schema, "populationTotal"), b.getPopulation());
-                   // .addProperty(dboModel.getProperty(dbo, "grossDomesticProductNominalPerCapita"), b.getGdp_per_capita());
-
-            
-           /* Resource ob = model.createResource(schema + "Observation")
-                    .addProperty(RDF.type, dboModel.getProperty(newOnto, "Staticts"));
-
-            Resource st = model.createResource(newOnto + "Staticts")
-                    .addProperty(RDF.type, dboModel.getProperty(newOnto, "Active_cases"))
-                    .addProperty(RDF.type, dboModel.getProperty(newOnto, "Confirmed_cases"))
-                    .addProperty(RDF.type, dboModel.getProperty(newOnto, "Deaths_cases"))
-                    .addProperty(RDF.type, dboModel.getProperty(newOnto, "Hospitalized_cases"))
-                    .addProperty(RDF.type, dboModel.getProperty(newOnto, "Recovered_cases"));*/
-
-            /*Resource ca = model.createResource(newOnto + "Active_cases")
-                    .addProperty(dboModel.getProperty(dbo,"Country"),dboModel.getProperty(dbo,b.getCountry()))
-                    .addProperty(RDFS.label, "Active Cases")
-                    .addProperty(dboModel.getProperty(dbo,"date"),b.getDate() );
+                    .addProperty(RDF.type, dboModel.getProperty(dbo, "country"))
+                     .addProperty(dboModel.getProperty(dbo,"name"),total_casos.getPais().getNombre() )
+                    .addProperty(gnModel.getProperty(gn, "countryCode"), total_casos.getPais().getIso_code())
+                    .addProperty(schemaModel.getProperty(schema, "latitude"), total_casos.getPais().getLatitud())
+                    .addProperty(schemaModel.getProperty(schema, "longitude"), total_casos.getPais().getLongitud())
+                    .addProperty(dboModel.getProperty(dbo, "populationTotal"), total_casos.getPais().getPoblacion())
+                    .addProperty(dboModel.getProperty(dbo, "grossDomesticProductNominalPerCapita"),total_casos.getPais().getPer_capita());
                     
+                    con.addProperty(dboModel.getProperty(dbo, "country"),rC);
 
-            Resource cc = model.createResource(newOnto + "Confirmed_cases")
-                    .addProperty(dboModel.getProperty(dbo,"Country"),dboModel.getProperty(dbo,b.getCountry()))
-                    .addProperty(RDFS.label, "Confirmed_cases")
-                    .addProperty(dboModel.getProperty(dbo,"date"),b.getDate() );
-
-            Resource dc = model.createResource(newOnto + "Deaths_cases")
-                    .addProperty(dboModel.getProperty(dbo,"Country"),dboModel.getProperty(dbo,b.getCountry()))
-                    .addProperty(RDFS.label, "Deaths_cases")
-                    .addProperty(dboModel.getProperty(dbo,"date"),b.getDate() );
-
-            Resource hc = model.createResource(newOnto + "Hospitalized_cases")
-                    .addProperty(dboModel.getProperty(dbo,"Country"),dboModel.getProperty(dbo,b.getCountry()))
-                    .addProperty(RDFS.label, "Hospitalized_cases")
-                    .addProperty(dboModel.getProperty(dbo,"date"),b.getDate() );
-
-            Resource rc = model.createResource(newOnto + "Recovered_cases")
-                    .addProperty(dboModel.getProperty(dbo,"Country"),dboModel.getProperty(dbo,b.getCountry()))
-                    .addProperty(RDFS.label, "Recovered_cases")
-                    .addProperty(dboModel.getProperty(dbo,"date"),b.getDate() );*/
+            String dataset2 = total_casos.getDs().getNombre().replaceAll(" ", "_");
+            Resource dat2 = model.createResource(dataPrefix + dataset2)
+                    .addProperty(RDF.type, dcatModel.getProperty(dcat, "Dataset"))
+                    .addProperty(dboModel.getProperty(dbo, "name"), total_casos.getDs().getNombre())
+                    .addProperty(dboModel.getProperty(dbo, "description"), total_casos.getDs().getDescripcion())
+                    .addProperty(dcatModel.getProperty(dcat, "downloadURL"), total_casos.getDs().getUrl());
+                    //.addProperty(dcModel.getProperty(dc, "dateSubmited"), String.valueOf(lstcon.getDataset().getSubmited()))
+                   // .addProperty(dcatModel.getProperty(dcat, "dateModification"), String.valueOf(lstcon.getDataset().getModificaction()));
+            //cat2.addProperty(dcatModel.getProperty(dcat, "dataset"), dat2);
+            
+            
+           
+            
+            /*Confirmed*/
+            
+            Resource conf = model.createResource(dataPrefix + total_casos.getCode())
+                    .addProperty(RDF.type, newOntoM.getProperty(newOnto, "Confirmed_Cases"))
+                    .addProperty(schemaModel.getProperty(schema, "observationDate"), total_casos.getFecha())
+                    .addProperty(newOntoM.getProperty(newOnto, "quantity"), total_casos.getNewcasos())
+                    .addProperty(newOntoM.getProperty(newOnto, "totalQuantity"), total_casos.getTotalcasos());
+            conf.addProperty(gnModel.getProperty(gn, "locatedIn"), rC);
+            conf.addProperty(provModel.getProperty(prov, "wasDerivedFrom"), dat2);
+                    
         }
+        
+        
         /**
          * Reading the Generated data in Triples Format and RDF
          */
@@ -177,8 +201,8 @@ class GeneratorRDF {
 
             System.out.println(" .");
         }
-        model.write(System.out);
-        model.write(System.out, "N3");
+        //model.write(System.out);
+        //model.write(System.out, "N3");
         // now write the model in XML form to a file
      
 
