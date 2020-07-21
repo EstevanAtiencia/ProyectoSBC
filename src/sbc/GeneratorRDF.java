@@ -5,7 +5,11 @@ import Clases.ClasePrincpial;
 import Clases.Continente;
 import Clases.Dataset;
 import Clases.Pais;
+import Clases.Total_Activos;
+import Clases.Total_Recuperados;
 import Clases.Total_casos;
+import Clases.Total_hospitalizados;
+import Clases.Total_muertes;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -37,14 +41,13 @@ import org.apache.jena.vocabulary.RDFS;
 class GeneratorRDF {
 
     static String DataFilePath = "/Users/Estevan/Documents/NetbeansProjects/Proyecto_SBC/Europa-Date8.csv"; //Data
-    static String GenFilePath = "/Users/Estevan/Documents/NetbeansProjects/Proyecto_SBC/casos.rdf"; //Generated RDF
+    static String GenFilePath = "/Users/Estevan/Documents/NetbeansProjects/Proyecto_SBC/DatosGenerados.rdf"; //Generated RDF
 
     public static void main(String... args) throws FileNotFoundException {
         //Get data from CSV and store in a list
-
-        ArrayList<ClasePrincpial> caso = new ArrayList();
         
         List<Total_casos> LTC = new ArrayList<>();
+          List<Total_Activos> LAC = new ArrayList<>();
         /*Leer csv*/
         BufferedReader bufferLectura = null;
         try {
@@ -58,20 +61,19 @@ class GeneratorRDF {
                 campos = linea.split(";");
                 //System.out.println(Arrays.toString(campos));
                 linea = bufferLectura.readLine();
-
-                
-                /*ClasePrincpial cases = new ClasePrincpial(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5],
-                        campos[6], campos[7],
-                        campos[8], campos[9], campos[10], campos[11], campos[12], campos[13], campos[14], campos[15],
-                        campos[16], campos[17], campos[18], campos[19], campos[20]);
-                caso.add(cases);*/
-                
+            
                 Continente cont= new Continente(campos[0]);
-               
                // System.out.println(campos[21]);
                 Pais pais = new Pais(campos[1],campos[2],campos[3],campos[4],campos[20],campos[21],cont);
                 Dataset ds= new Dataset(campos[22],campos[23],campos[24],campos[25],campos[26],campos[27]);
-                Total_casos TC= new Total_casos("confir_"+i,campos[5], campos[6],campos[7], pais,ds);
+                Total_Activos TA= new Total_Activos("Act"+i,campos[16]);
+                Total_muertes tm= new Total_muertes("Muer"+i,campos[8],campos[9]);
+                Total_hospitalizados th= new Total_hospitalizados("Hosp"+i,campos[19]);
+                Total_Recuperados tr = new Total_Recuperados("Recu"+i,campos[17]);
+                Total_casos TC= new Total_casos("Confr"+i,campos[5], campos[6],campos[7], pais,ds,TA,tm,th,tr);
+                
+                
+                LAC.add(TA);
                 LTC.add(TC);
                 i++;
             }
@@ -142,9 +144,8 @@ class GeneratorRDF {
            String aux=total_casos.getPais().getNombre().replaceAll(" ", "_");
            
             Resource rC = model.createResource(dataPrefix + aux)
-                   
-                    .addProperty(RDF.type, dboModel.getProperty(dbo, "country"))
-                     .addProperty(dboModel.getProperty(dbo,"name"),total_casos.getPais().getNombre() )
+                    .addProperty(RDF.type, dboModel.getProperty(dbo, "Country"))
+                    .addProperty(dboModel.getProperty(dbo,"name"),total_casos.getPais().getNombre() )
                     .addProperty(gnModel.getProperty(gn, "countryCode"), total_casos.getPais().getIso_code())
                     .addProperty(schemaModel.getProperty(schema, "latitude"), total_casos.getPais().getLatitud())
                     .addProperty(schemaModel.getProperty(schema, "longitude"), total_casos.getPais().getLongitud())
@@ -162,10 +163,7 @@ class GeneratorRDF {
                     //.addProperty(dcModel.getProperty(dc, "dateSubmited"), String.valueOf(lstcon.getDataset().getSubmited()))
                    // .addProperty(dcatModel.getProperty(dcat, "dateModification"), String.valueOf(lstcon.getDataset().getModificaction()));
             //cat2.addProperty(dcatModel.getProperty(dcat, "dataset"), dat2);
-            
-            
-           
-            
+                  
             /*Confirmed*/
             
             Resource conf = model.createResource(dataPrefix + total_casos.getCode())
@@ -175,8 +173,50 @@ class GeneratorRDF {
                     .addProperty(newOntoM.getProperty(newOnto, "totalQuantity"), total_casos.getTotalcasos());
             conf.addProperty(gnModel.getProperty(gn, "locatedIn"), rC);
             conf.addProperty(provModel.getProperty(prov, "wasDerivedFrom"), dat2);
+            
+            
+            Resource act = model.createResource(dataPrefix + total_casos.getTa().getCode())
+                    .addProperty(RDF.type, newOntoM.getProperty(newOnto, "Active_Cases"))
+                    .addProperty(schemaModel.getProperty(schema, "observationDate"), total_casos.getFecha())
                     
+                    .addProperty(newOntoM.getProperty(newOnto, "totalQuantity"), total_casos.getTa().getActivos());
+            act.addProperty(gnModel.getProperty(gn, "locatedIn"), rC);
+            act.addProperty(provModel.getProperty(prov, "wasDerivedFrom"), dat2);
+            
+            
+            Resource mue = model.createResource(dataPrefix + total_casos.getTm().getCode())
+                    .addProperty(RDF.type, newOntoM.getProperty(newOnto, "Muerte_Cases"))
+                    .addProperty(schemaModel.getProperty(schema, "observationDate"), total_casos.getFecha())
+                    .addProperty(newOntoM.getProperty(newOnto, "quantity"), total_casos.getTm().getNew_muertes())
+                    .addProperty(newOntoM.getProperty(newOnto, "totalQuantity"), total_casos.getTm().getTotal_muertes());
+            mue.addProperty(gnModel.getProperty(gn, "locatedIn"), rC);
+            mue.addProperty(provModel.getProperty(prov, "wasDerivedFrom"), dat2);
+            
+            
+            
+             Resource hosp = model.createResource(dataPrefix + total_casos.getTh().getCode())
+                    .addProperty(RDF.type, newOntoM.getProperty(newOnto, "Hospitalizados"))
+                    .addProperty(schemaModel.getProperty(schema, "observationDate"), total_casos.getFecha())
+                    
+                    .addProperty(newOntoM.getProperty(newOnto, "totalQuantity"), total_casos.getTh().getTotal_hospitalizados());
+            hosp.addProperty(gnModel.getProperty(gn, "locatedIn"), rC);
+            hosp.addProperty(provModel.getProperty(prov, "wasDerivedFrom"), dat2);
+            
+            
+            
+             Resource recu = model.createResource(dataPrefix + total_casos.getTr().getCode())
+                    .addProperty(RDF.type, newOntoM.getProperty(newOnto, "Recuperados"))
+                    .addProperty(schemaModel.getProperty(schema, "observationDate"), total_casos.getFecha())
+                    
+                    .addProperty(newOntoM.getProperty(newOnto, "totalQuantity"), total_casos.getTr().getTotal_recuperados());
+            recu.addProperty(gnModel.getProperty(gn, "locatedIn"), rC);
+            hosp.addProperty(provModel.getProperty(prov, "wasDerivedFrom"), dat2);
+            
         }
+        
+        
+        
+        
         
         
         /**

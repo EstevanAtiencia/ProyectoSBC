@@ -11,15 +11,20 @@ package Clases;
  */
 public class Total_casos {
     
-    //generar un codigo
+  
     private String code;
     private String fecha;
     private String totalcasos;
     private String newcasos;
     private Pais pais;
     private Dataset ds;
-    //fuente de datos
-
+   
+    private Total_Activos ta;
+    private Total_muertes tm;
+    private Total_hospitalizados th;
+    private Total_Recuperados tr;
+    
+/*
     public Total_casos(String code, String fecha, String totalcasos, String newcasos, Pais pais, Dataset ds) {
         this.code = code;
         this.fecha = fecha;
@@ -28,7 +33,22 @@ public class Total_casos {
         this.pais = pais;
         this.ds = ds;
     }
+*/
 
+    public Total_casos(String code, String fecha, String totalcasos, String newcasos, Pais pais, Dataset ds, Total_Activos ta, Total_muertes tm, Total_hospitalizados th, Total_Recuperados tr) {
+        this.code = code;
+        this.fecha = fecha;
+        this.totalcasos = totalcasos;
+        this.newcasos = newcasos;
+        this.pais = pais;
+        this.ds = ds;
+        this.ta = ta;
+        this.tm = tm;
+        this.th = th;
+        this.tr = tr;
+    }
+    
+    
     public String getCode() {
         return code;
     }
@@ -75,6 +95,38 @@ public class Total_casos {
 
     public void setDs(Dataset ds) {
         this.ds = ds;
+    }
+
+    public Total_Activos getTa() {
+        return ta;
+    }
+
+    public void setTa(Total_Activos ta) {
+        this.ta = ta;
+    }
+
+    public Total_muertes getTm() {
+        return tm;
+    }
+
+    public void setTm(Total_muertes tm) {
+        this.tm = tm;
+    }
+
+    public Total_hospitalizados getTh() {
+        return th;
+    }
+
+    public void setTh(Total_hospitalizados th) {
+        this.th = th;
+    }
+
+    public Total_Recuperados getTr() {
+        return tr;
+    }
+
+    public void setTr(Total_Recuperados tr) {
+        this.tr = tr;
     }
 
     
