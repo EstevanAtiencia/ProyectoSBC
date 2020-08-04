@@ -1,6 +1,6 @@
 package sbc;
 
-import Clases.casos;
+
 import Clases.ClasePrincpial;
 import Clases.Continente;
 import Clases.Dataset;
@@ -10,6 +10,7 @@ import Clases.Total_Recuperados;
 import Clases.Total_casos;
 import Clases.Total_hospitalizados;
 import Clases.Total_muertes;
+import Clases.Total_pruebas;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +20,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -43,9 +47,9 @@ class GeneratorRDF {
     static String DataFilePath = "/Users/Estevan/Documents/NetbeansProjects/Proyecto_SBC/Europa-Date8.csv"; //Data
     static String GenFilePath = "/Users/Estevan/Documents/NetbeansProjects/Proyecto_SBC/DatosGenerados.rdf"; //Generated RDF
 
-    public static void main(String... args) throws FileNotFoundException {
+    public static void main(String... args) throws FileNotFoundException, ParseException {
         //Get data from CSV and store in a list
-        
+       
         List<Total_casos> LTC = new ArrayList<>();
           List<Total_Activos> LAC = new ArrayList<>();
         /*Leer csv*/
@@ -55,24 +59,22 @@ class GeneratorRDF {
             String titulo = bufferLectura.readLine();
             String linea = bufferLectura.readLine();
             String[] campos;
+            Date fecha= new Date();
             int i=1;
             while (linea != null) {
-                
                 campos = linea.split(";");
-                //System.out.println(Arrays.toString(campos));
                 linea = bufferLectura.readLine();
-            
                 Continente cont= new Continente(campos[0]);
-               // System.out.println(campos[21]);
                 Pais pais = new Pais(campos[1],campos[2],campos[3],campos[4],campos[20],campos[21],cont);
+                System.out.println(String.valueOf(campos[3]));
                 Dataset ds= new Dataset(campos[22],campos[23],campos[24],campos[25],campos[26],campos[27]);
                 Total_Activos TA= new Total_Activos("Act"+i,campos[16]);
                 Total_muertes tm= new Total_muertes("Muer"+i,campos[8],campos[9]);
                 Total_hospitalizados th= new Total_hospitalizados("Hosp"+i,campos[19]);
                 Total_Recuperados tr = new Total_Recuperados("Recu"+i,campos[17]);
-                Total_casos TC= new Total_casos("Confr"+i,campos[5], campos[6],campos[7], pais,ds,TA,tm,th,tr);
-                
-                
+                Total_pruebas tp=new Total_pruebas("Prue"+i,campos[10], campos[11]);
+                System.out.println(campos[5]);
+                Total_casos TC= new Total_casos("Confr"+i,campos[5], campos[6],campos[7], pais,ds,TA,tm,th,tr,tp);
                 LAC.add(TA);
                 LTC.add(TC);
                 i++;
@@ -210,7 +212,18 @@ class GeneratorRDF {
                     
                     .addProperty(newOntoM.getProperty(newOnto, "totalQuantity"), total_casos.getTr().getTotal_recuperados());
             recu.addProperty(gnModel.getProperty(gn, "locatedIn"), rC);
-            hosp.addProperty(provModel.getProperty(prov, "wasDerivedFrom"), dat2);
+            recu.addProperty(provModel.getProperty(prov, "wasDerivedFrom"), dat2);
+            
+            
+            
+            
+            Resource prue = model.createResource(dataPrefix + total_casos.getTp().getCode())
+                    .addProperty(RDF.type, newOntoM.getProperty(newOnto, "Pruebas"))
+                    .addProperty(schemaModel.getProperty(schema, "observationDate"), total_casos.getFecha())
+                    .addProperty(newOntoM.getProperty(newOnto, "quantity"), total_casos.getTp().getNew_pruebas())
+                    .addProperty(newOntoM.getProperty(newOnto, "totalQuantity"), total_casos.getTp().getTotal_pruebas());
+            prue.addProperty(gnModel.getProperty(gn, "locatedIn"), rC);
+            prue.addProperty(provModel.getProperty(prov, "wasDerivedFrom"), dat2);
             
         }
         

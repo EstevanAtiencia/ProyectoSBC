@@ -5,6 +5,9 @@
  */
 package Clases;
 
+import java.util.Date;
+
+
 /**
  *
  * @author Estevan
@@ -24,6 +27,8 @@ public class Total_casos {
     private Total_hospitalizados th;
     private Total_Recuperados tr;
     
+    private Total_pruebas tp;
+    
 /*
     public Total_casos(String code, String fecha, String totalcasos, String newcasos, Pais pais, Dataset ds) {
         this.code = code;
@@ -34,7 +39,7 @@ public class Total_casos {
         this.ds = ds;
     }
 */
-
+/*
     public Total_casos(String code, String fecha, String totalcasos, String newcasos, Pais pais, Dataset ds, Total_Activos ta, Total_muertes tm, Total_hospitalizados th, Total_Recuperados tr) {
         this.code = code;
         this.fecha = fecha;
@@ -46,7 +51,23 @@ public class Total_casos {
         this.tm = tm;
         this.th = th;
         this.tr = tr;
+    }*/
+
+    public Total_casos(String code,String fecha, String totalcasos, String newcasos, Pais pais, Dataset ds, Total_Activos ta, Total_muertes tm, Total_hospitalizados th, Total_Recuperados tr, Total_pruebas tp) {
+        this.code = code;
+        this.fecha = fecha;
+        this.totalcasos = totalcasos;
+        this.newcasos = newcasos;
+        this.pais = pais;
+        this.ds = ds;
+        this.ta = ta;
+        this.tm = tm;
+        this.th = th;
+        this.tr = tr;
+        this.tp = tp;
     }
+    
+    
     
     
     public String getCode() {
@@ -127,6 +148,14 @@ public class Total_casos {
 
     public void setTr(Total_Recuperados tr) {
         this.tr = tr;
+    }
+
+    public Total_pruebas getTp() {
+        return tp;
+    }
+
+    public void setTp(Total_pruebas tp) {
+        this.tp = tp;
     }
 
     
